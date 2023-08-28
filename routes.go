@@ -13,7 +13,7 @@ func setupRoutes(router *gin.Engine, db *gorm.DB) {
 	// Create a new parcel
 	router.POST("/parcels", func(c *gin.Context) {
 		// Simulate authentication delay
-		time.Sleep(time.Millisecond * time.Duration(randomDelay(500, 800)))
+		time.Sleep(time.Millisecond * time.Duration(randomDelay(1, 80)))
 
 		var parcel models.Parcel
 		c.BindJSON(&parcel)
@@ -36,7 +36,7 @@ func setupRoutes(router *gin.Engine, db *gorm.DB) {
 	// Retrieve all parcels
 	router.GET("/parcels", func(c *gin.Context) {
 		// Simulate authentication delay
-		time.Sleep(time.Millisecond * time.Duration(randomDelay(500, 800)))
+		time.Sleep(time.Millisecond * time.Duration(randomDelay(1, 80)))
 
 		var parcels []models.Parcel
 
@@ -52,7 +52,7 @@ func setupRoutes(router *gin.Engine, db *gorm.DB) {
 	// Retrieve a specific parcel with ID from URL
 	router.GET("/parcels/:id", func(c *gin.Context) {
 		// Simulate authentication delay
-		time.Sleep(time.Millisecond * time.Duration(randomDelay(500, 800)))
+		time.Sleep(time.Millisecond * time.Duration(randomDelay(1, 80)))
 
 		var parcel models.Parcel
 		//extracting ID from URL
@@ -70,7 +70,7 @@ func setupRoutes(router *gin.Engine, db *gorm.DB) {
 	// Update a parcel
 	router.PUT("/parcels/:id", func(c *gin.Context) {
 		// Simulate authentication delay
-		time.Sleep(time.Millisecond * time.Duration(randomDelay(500, 800)))
+		time.Sleep(time.Millisecond * time.Duration(randomDelay(1, 80)))
 
 		var updatedParcel models.Parcel
 
@@ -107,7 +107,7 @@ func setupRoutes(router *gin.Engine, db *gorm.DB) {
 	// Delete a parcel
 	router.DELETE("/parcels/:id", func(c *gin.Context) {
 		// Simulate authentication delay
-		time.Sleep(time.Millisecond * time.Duration(randomDelay(300, 600)))
+		time.Sleep(time.Millisecond * time.Duration(randomDelay(1, 80)))
 
 		var parcel models.Parcel
 		parcel.ID = c.Param("id")

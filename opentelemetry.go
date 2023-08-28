@@ -16,7 +16,6 @@ import (
 	"log"
 	"os"
 	"strings"
-	"time"
 )
 
 var (
@@ -98,9 +97,6 @@ func ChildSpan(c *gin.Context, action, name string, task func() error) error {
 	//Adding attributes to identify the operation captured in this span
 	opt := trace.WithAttributes(attribute.String("service.action", action))
 	_, span := tracer.Start(savedContext, name, opt)
-
-	// Simulate delay in operation
-	time.Sleep(time.Millisecond * time.Duration(randomDelay(400, 800)))
 
 	//running function provided in span to add to trace
 	if err := task(); err != nil {
